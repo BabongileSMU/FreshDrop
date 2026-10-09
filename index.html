@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshDrop</title>
+    <link rel="stylesheet" href="STYLING.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="LOGO.jpeg" alt="FreshDrop Logo">
+    <h1>FreshDrop</h1>
+    <p>Fresh Vegetables Delivered to You</p>
+    </div>
+</header>
+    <h1>Welcome to FreshDrop</h1>
+<p class="welcome">
+“Fresh vegetables delivered directly from trusted sources to your home. 
+Healthy living made easy, affordable, and accessible for everyone.”
+</p>
+
+<section class="products">
+
+    <div class="card">
+        <h2>Tomatoes &#127813 </h2>
+        <p>Fresh farm tomatoes.</p>
+        <p class="price">Price: R10.00</p>
+        <button class="btn" onclick="addToCart('Tomatoes', 10)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <h2>Carrots &#129365</h2>
+        <p>Quality carrots available.</p>
+        <p class="price">Price: R5.00</p>
+        <button class="btn" onclick="addToCart('carotts', 5)">Add to Cart</button>
+    </div>
+        <div class="card">
+        <h2>Lemons &#127819</h2>
+        <p>Fresh farm Lemons.</p>
+        <p class="price">Price: R10.00</p>
+        <button class="btn" onclick="addToCart('Lemons', 10)">Add to Cart</button>
+    </div>
+        <div class="card">
+        <h2>Potatoes &#129364</h2>
+        <p>Quality potatoes available.</p>
+        <p class="price">Price: R10.00</p>
+        <button class="btn" onclick="addToCart('potatoes', 10)">Add to Cart</button>
+    </div>
+    <div class="card">
+        <h2>Avocado &#129361</h2>
+        <p>Fresh farm Avocado.</p>
+        <p class="price">Price: R10.00</p>
+        <button class="btn" onclick="addToCart('Avocado', 10)">Add to Cart</button>
+    </div>
+        <div class="card">
+        <h2>Garlic &#129476</h2>
+        <p>Quality garlic available.</p>
+        <p class="price">Price: R7.00</p>
+        <button class="btn" onclick="addToCart('Garlic', 7)">Add to Cart</button>
+    </div>
+        <div class="card">
+    <img src="cabbage.jpeg" alt="Cabbage" class="icon">
+
+    <h2>Cabbage</h2>
+    <p>Fresh farm cabbage.</p>
+
+    <p class="price">
+        <label for="cabbage-price">Choose a price:</label>
+
+        <select id="cabbage-price">
+            <option value="10">R10.00</option>
+            <option value="15">R15.00</option>
+            <option value="20">R20.00</option>
+        </select>
+    </p>
+
+    <button
+        class="btn"
+        onclick="addToCart('Cabbage', Number(document.getElementById('cabbage-price').value))">
+        Add to Cart
+    </button>
+</div>
+        <div class="card">
+            <img src="chili.jpeg" alt="chilli" class="icon">
+        <h2>Chilli</h2>
+        <p>Quality  available.</p>
+        <p class="price">Price: R5.00</p>
+        <button class="btn" onclick="addToCart('Chilli', 5)">Add to Cart</button>
+    </div>
+        <div class="card">
+        <h2>Mozambique letuce</h2>
+        <img src="letuce.jpeg" alt="letuce" class="icon">
+        <p>Fresh farm Letuce.</p>
+        <p class="price">Price: R15.00</p>
+        <button class="btn" onclick="addToCart('Letuce', 15)">Add to Cart</button>
+    </div>
+        <div class="card">
+            <img src="peppers.jpeg" alt="peppers" class="icon">
+        <h2>Peppers</h2>
+        <p>Quality peppers available.</p>
+        <p class="price">Price: R20.00</p>
+        <button class="btn" onclick="addToCart('Peppers', 20)">Add to Cart</button>
+    </div>
+    <div class="card">
+            <img src="spinach.jpeg" alt="spinach" class="icon">
+        <h2>Spinach</h2>
+        <p>Fresh farm Spinach.</p>
+        <p class="price">Price: R10.00</p>
+        <button class="btn" onclick="addToCart('Spinach', 10)">Add to Cart</button>
+    </div>
+    <div class="card">
+            <img src="khovu.jpeg" alt="Khovu" class="icon">
+        <h2>Khovu/Gomann</h2>
+        <p>Quality Gomann available.</p>
+        <p class="price">Price: R10.00</p>
+        <button class="btn" onclick="addToCart('Gomann', 10)">Add to Cart</button>
+    </div>
+    <div class="card">
+            <img src="amadumbe.jpeg" alt="amadumbe" class="icon">
+        <h2>Amadumbe</h2>
+        <p>Fresh farm Amadumbe.</p>
+        <p class="price">Price: R30.00</p>
+        <button class="btn" onclick="addToCart('Amadumbe', 30)">Add to Cart</button>
+    </div>
+    <div class="card">
+            <img src="soft morogo.jpeg" alt="soft morogo" class="icon">
+        <h2>Soft Morogo</h2>
+        <p>Quality soft morogo available.</p>
+        <p class="price">Price: R10.00</p>
+        <button class="btn" onclick="addToCart('Soft Morogo', 10)">Add to Cart</button>
+    </div>
+
+</section>
+
+<section class="cart" id="shopping-cart">
+
+    <h2>Your Cart</h2>
+
+    <ul id="cart-list"></ul>
+
+    <h3>Total: R<span id="total">0</span></h3>
+    <div class="customer-details">
+
+    <input type="text"
+           id="customer-name"
+           placeholder="Enter your name">
+
+    <input type="text"
+           id="customer-address"
+           placeholder="Delivery Address">
+
+    <textarea id="customer-message"
+              placeholder="Additional instructions (optional)"></textarea>
+
+</div>
+    <button class="order-btn" onclick="sendWhatsAppOrder()">
+        Order All on WhatsApp
+    </button>
+    <button class="reset-btn" onclick="resetCart()">
+    Reset Cart
+</button>
+
+</section>
+<footer class="footer">
+
+    <div class="person">
+        <img src="paul.jpeg" alt="Paul" class="footer-img">
+        <h3>Paul Macule</h3>
+        <p>Owner</p>
+        <p><a href="mailto:paulmacule2007@gmail.com">paulmacule2007@gmail.com</a></p>
+        <p><a href="tel:0733575563">068 287 8122</a></p>
+    </div>
+
+    <div class="person">
+        <img src="me.jpeg" alt="me" class="footer-img">
+        <h3>Luyanda Njapha</h3>
+        <p>Developer</p>
+        <p><a href="mailto:njaphaluyanda5@gmail.com">njaphaluyanda5@gmail.com</a></p>
+        <p><a href="tel:063 485 4905">063 485 4905</a></p>
+    </div>
+
+</footer>
+<a href="#shopping-cart" class="cart-shortcut">
+    🛒 Cart (<span id="cart-count">0</span>)
+    · R<span id="cart-preview-total">0.00</span>
+</a>
+
+<div id="cart-notice" class="cart-notice" role="status"></div>
+<script>
+let cart = [];
+let noticeTimer;
+
+function getTotal() {
+    return cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
+}
+
+function showNotice(message) {
+    const notice = document.getElementById("cart-notice");
+
+    clearTimeout(noticeTimer);
+    notice.textContent = message;
+    notice.classList.add("show");
+
+    noticeTimer = setTimeout(() => {
+        notice.classList.remove("show");
+    }, 2200);
+}
+
+function addToCart(name, price) {
+    const existing = cart.find(
+        item => item.name === name && item.price === price
+    );
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+
+    updateCart();
+    showNotice(name + " added to your cart ✓");
+}
+
+function changeQuantity(index, change) {
+    cart[index].quantity += change;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    updateCart();
+}
+
+function removeItem(index) {
+    const name = cart[index].name;
+    cart.splice(index, 1);
+    updateCart();
+    showNotice(name + " removed");
+}
+
+function makeButton(text, className, label, action) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.textContent = text;
+    button.className = className;
+    button.setAttribute("aria-label", label);
+    button.addEventListener("click", action);
+
+    return button;
+}
+
+function updateCart() {
+    const list = document.getElementById("cart-list");
+    list.replaceChildren();
+
+    if (cart.length === 0) {
+        const empty = document.createElement("li");
+        empty.className = "empty-cart";
+        empty.textContent = "Your basket is empty. Add something fresh!";
+        list.appendChild(empty);
+    }
+
+    cart.forEach((item, index) => {
+        const row = document.createElement("li");
+        row.className = "cart-item";
+
+        const details = document.createElement("div");
+        details.className = "item-details";
+
+        const title = document.createElement("strong");
+        title.textContent = item.name;
+
+        const price = document.createElement("span");
+        price.textContent =
+            "R" + item.price.toFixed(2) + " × " + item.quantity +
+            " = R" + (item.price * item.quantity).toFixed(2);
+
+        details.append(title, price);
+
+        const controls = document.createElement("div");
+        controls.className = "quantity-controls";
+
+        const minus = makeButton(
+            "−", "quantity-btn",
+            "Decrease " + item.name + " quantity",
+            () => changeQuantity(index, -1)
+        );
+
+        const quantity = document.createElement("span");
+        quantity.textContent = item.quantity;
+
+        const plus = makeButton(
+            "+", "quantity-btn",
+            "Increase " + item.name + " quantity",
+            () => changeQuantity(index, 1)
+        );
+
+        const remove = makeButton(
+            "Remove", "remove-btn",
+            "Remove " + item.name,
+            () => removeItem(index)
+        );
+
+        controls.append(minus, quantity, plus, remove);
+        row.append(details, controls);
+        list.appendChild(row);
+    });
+
+    const total = getTotal().toFixed(2);
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    document.getElementById("total").textContent = total;
+    document.getElementById("cart-preview-total").textContent = total;
+    document.getElementById("cart-count").textContent = count;
+}
+
+function sendWhatsAppOrder() {
+    if (cart.length === 0) {
+        showNotice("Add something to your cart first.");
+        return;
+    }
+
+    const nameInput = document.getElementById("customer-name");
+    const addressInput = document.getElementById("customer-address");
+    const name = nameInput.value.trim();
+    const address = addressInput.value.trim();
+    const note = document.getElementById("customer-message").value.trim();
+
+    if (!name) {
+        showNotice("Please enter your name.");
+        nameInput.focus();
+        return;
+    }
+
+    if (!address) {
+        showNotice("Please enter your delivery address.");
+        addressInput.focus();
+        return;
+    }
+
+    const lines = [
+        "FRESHDROP ORDER",
+        "",
+        "Name: " + name,
+        "Address: " + address
+    ];
+
+    if (note) {
+        lines.push("Note: " + note);
+    }
+
+    lines.push("", "Items ordered:");
+
+    cart.forEach(item => {
+        lines.push(
+            "- " + item.name + " × " + item.quantity +
+            " @ R" + item.price.toFixed(2) +
+            " = R" + (item.price * item.quantity).toFixed(2)
+        );
+    });
+
+    lines.push("", "Total: R" + getTotal().toFixed(2));
+
+    const phone = "27733575563";
+    const message = encodeURIComponent(lines.join("\n"));
+
+    window.open(
+        "https://wa.me/" + phone + "?text=" + message,
+        "_blank",
+        "noopener,noreferrer"
+    );
+}
+
+function resetCart() {
+    cart = [];
+    updateCart();
+    showNotice("Your cart has been cleared.");
+}
+
+updateCart();
+</script>
+</body>
+</html>
